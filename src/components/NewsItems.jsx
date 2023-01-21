@@ -49,13 +49,13 @@ export default class NewsItems extends Component {
     return (
       <>
         <div className="container">
-          <h2 className="my-2 text-center">NewsMonkey - {this.props.title}</h2>
+          <h2 className="my-3 mb-4 text-center">NewsMonkey - {this.props.title}</h2>
           <div className="text-center">{this.state.loading && <Spinner />}</div>
           <div className="row">
             {!this.state.loading &&
               this.state.articles.map((element) => {
                 return (
-                  <div className="col-md-4 my-2" key={element.url}>
+                  <div className="col-md-4 my-3" key={element.url}>
                     <News
                       title={
                         element.title === null
