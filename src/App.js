@@ -18,7 +18,7 @@ export default class App extends Component {
                 key="general"
                 pageSize={10}
                 category="general"
-                title="NewsMonkey Trending ..."
+                title="Trending ..."
               />
             }
           />

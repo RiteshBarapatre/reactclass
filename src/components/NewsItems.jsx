@@ -49,7 +49,7 @@ export default class NewsItems extends Component {
     return (
       <>
         <div className="container">
-          <h2 className="my-2 text-center">{this.props.title}</h2>
+          <h2 className="my-2 text-center">NewsMonkey - {this.props.title}</h2>
           <div className="text-center">{this.state.loading && <Spinner />}</div>
           <div className="row">
             {!this.state.loading &&
