@@ -16,7 +16,7 @@ export default class App extends Component {
             element={
               <NewsItems
                 key="general"
-                pageSize={10}
+                pageSize={12}
                 category="general"
                 title="Trending ..."
               />
