@@ -1,16 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default class Navbar extends Component {
+const Navbar = ()=>{
 
-
-  render() {
     let activeStyle = {
       fontSize : '17px',
       borderBottom : '2px solid white'
     }
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary" style={{position : "sticky",top : "0",zIndex : "3"}}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             NewsMonkey
@@ -65,7 +63,7 @@ export default class Navbar extends Component {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-                onChange={this.changed}
+                // onChange={props.changed}
               />
               <button className="btn btn-outline-light">
                 Search
@@ -76,4 +74,5 @@ export default class Navbar extends Component {
       </nav>
     );
   }
-}
+
+export default Navbar

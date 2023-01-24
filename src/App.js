@@ -1,29 +1,25 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import LoadingBar from "react-top-loading-bar";
 import NewsItems from "./components/NewsItems";
 
-export default class App extends Component {
+const App = ()=>{
 
-  apiKey = process.env.REACT_APP_NEWS_API
+  const apiKey = process.env.REACT_APP_NEWS_API
 
-  state = {
-    progress: 10,
+  const [state, setState] = useState(10)
+
+
+  const setProgress = (progress) => {
+    setState(progress);
   };
-
-
-  setProgress = (progress) => {
-    this.setState({ progress: progress });
-  };
-  render() {
     return (
       <>
         <LoadingBar
           color="#f11946"
-          progress={this.state.progress}
-          // onLoaderFinished={() => setProgress(100)}
+          progress={state}
         />
         <Navbar />
         <Routes>
@@ -32,10 +28,10 @@ export default class App extends Component {
             path="/"
             element={
               <NewsItems
-                setProgress={this.setProgress}
-                apiKey = {this.apiKey}
+                setProgress={setProgress}
+                apiKey = {apiKey}
                 key="general"
-                pageSize={12}
+                pageSize={100}
                 category="general"
                 title="Trending ..."
               />
@@ -46,8 +42,8 @@ export default class App extends Component {
             path="/business"
             element={
               <NewsItems
-                setProgress={this.setProgress}
-                apiKey = {this.apiKey}
+                setProgress={setProgress}
+                apiKey = {apiKey}
                 key="business"
                 title="Business..."
                 category="business"
@@ -59,8 +55,8 @@ export default class App extends Component {
             path="/entertainment"
             element={
               <NewsItems
-                setProgress={this.setProgress}
-                apiKey = {this.apiKey}
+                setProgress={setProgress}
+                apiKey = {apiKey}
                 key="entertainment"
                 title="Entertainment..."
                 category="entertainment"
@@ -72,8 +68,8 @@ export default class App extends Component {
             path="/science"
             element={
               <NewsItems
-                setProgress={this.setProgress}
-                apiKey = {this.apiKey}
+                setProgress={setProgress}
+                apiKey = {apiKey}
                 key="science"
                 title="Science..."
                 category="science"
@@ -85,8 +81,8 @@ export default class App extends Component {
             path="/sports"
             element={
               <NewsItems
-                setProgress={this.setProgress}
-                apiKey = {this.apiKey}
+                setProgress={setProgress}
+                apiKey = {apiKey}
                 key="sports"
                 title="Sports..."
                 category="sports"
@@ -98,8 +94,8 @@ export default class App extends Component {
             path="/technology"
             element={
               <NewsItems
-                setProgress={this.setProgress}
-                apiKey = {this.apiKey}
+                setProgress={setProgress}
+                apiKey = {apiKey}
                 key="technology"
                 title="Technology..."
                 category="technology"
@@ -110,4 +106,5 @@ export default class App extends Component {
       </>
     );
   }
-}
+
+export default App
